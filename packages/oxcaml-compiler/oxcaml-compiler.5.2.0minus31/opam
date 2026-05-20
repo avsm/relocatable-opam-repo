@@ -23,7 +23,6 @@ depends: [
   "ocaml-options-vanilla" {post}
   "oxcaml-patch-guards"   {post}
 ]
-available: os = "linux" & (arch = "x86_64" | arch = "arm64")
 setenv: CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"
 build: [
   [make "PREFIX=%{prefix}%" "JOBS=%{jobs}%"]
