@@ -1,0 +1,42 @@
+opam-version: "2.0"
+license: "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+synopsis: "OxCaml (one-shot relocatable bundle build)"
+description: """
+OxCaml 5.2.0minus38, built from the self-contained, pre-unpacked and
+pre-patched source bundle published by oxcaml-pkgs at
+https://oi.thicket.dev/repo/src/."""
+maintainer: "Anil Madhavapeddy <anil@recoil.org>"
+authors: "Xavier Leroy and many contributors"
+homepage: "https://oxcaml.org"
+bug-reports: "https://github.com/oxcaml/oxcaml/issues"
+dev-repo: "git+https://github.com/oxcaml/oxcaml.git#main"
+depends: [
+  "conf-autoconf"         {build}
+  "conf-which"            {build}
+  "ocaml-variants"        {= "5.2.0+ox" & post}
+  "oxcaml"                {post}
+  "base-unix"             {post}
+  "base-bigarray"         {post}
+  "base-threads"          {post}
+  "base-domains"          {post}
+  "base-nnp"              {post}
+  "ocaml-options-vanilla" {post}
+  "oxcaml-patch-guards"   {post}
+]
+setenv: CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"
+build: [
+  [make "PREFIX=%{prefix}%" "JOBS=%{jobs}%"]
+]
+install: [
+  [make "install" "PREFIX=%{prefix}%"]
+]
+url {
+  src: "https://oi.thicket.dev/repo/src/oxcaml-5.2.0minus38-2669e6f6b.tar.gz"
+  checksum:
+    "sha256=58087e38a78593684431f87b705aef1e14bc499a012148a5096c46dcf8c6a0d5"
+}
+conflicts: [
+  "sexplib0" {< "v0.18~"}
+  "base" {< "v0.18~"}
+  "odoc" {< "3.2.0"}
+]
