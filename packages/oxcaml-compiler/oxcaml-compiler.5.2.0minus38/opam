@@ -33,7 +33,7 @@ install: [
 url {
   src: "https://oi.thicket.dev/repo/src/oxcaml-5.2.0minus38-2669e6f6b.tar.gz"
   checksum:
-    "sha256=58087e38a78593684431f87b705aef1e14bc499a012148a5096c46dcf8c6a0d5"
+    "sha256=cf5c3d5154ffc180ed78460f8280cfb16dc13b6d8e1adaa3b2d02e600e2b2ad7"
 }
 conflicts: [
   "sexplib0" {< "v0.18~"}
